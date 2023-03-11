@@ -1,0 +1,203 @@
+  .block{
+    width: 541px;
+  }
+  /* p{
+     color: yellow;
+     width: fit-content;
+     height: fit-content;
+     margin-left: 150px; */
+     /* margin-top: 75px; */
+     /* font-size: 50px;
+     font-family: Arial, Helvetica, sans-serif;   
+     text-align: center;
+     
+   } */
+   /* p{
+    margin-bottom: 4em;
+   } */
+  main{
+      margin-left: 747px;
+      margin-top: 58px;
+  }
+
+  body{
+    background-image:url("bg.jpg"); 
+    background-size: cover;
+  }
+  .bg-light{
+    background-color: tomato;
+  }
+  
+a:link {
+     text-decoration: none; 
+  }
+  .site_name{
+	text-align: center;
+	margin-top: 100px;
+	font-size: 4em;
+	color: #fff;
+	text-transform: uppercase;
+	font-family: 'Roboto Mono', monospace;
+    color: red ;
+}
+.top_menu{
+	width: 300px;
+	height: 100%;
+}
+.top_menu ul{
+	height: 100%;
+	display: flex;
+	width: 100%;
+	justify-content: spase-evenly;
+	align-items: center;
+}
+.top_menu ul li{
+	list-style: none;
+}
+.top_menu ul li a{
+	text-decoration: none;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.3em;
+    color: blueviolet;
+
+}
+.top_menu ul li a:hover{
+	text-decoration: underline;
+}
+
+.index{
+    height: 669px;
+    width: 800px;
+    margin-top: 668px;
+    margin-left: 159px;
+
+}
+.first{
+    background-image:url("uni4.jpg");
+    background-size: contain;
+    max-width:100% ;
+    max-height:100% ;
+
+}
+.game{
+    margin-bottom: 1em;
+    color: yellow; 
+    width: fit-content;
+    height: fit-content;
+    margin-left: 225px;
+    /* margin-top: 75px; */ 
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;   
+    text-align: center;
+    
+}
+canvas{
+    margin-bottom: 74px;
+    margin-right: 438px;
+    margin-left: 3px;
+
+}
+section{
+	height: 50vh;
+	display: flex;
+	justify-content: space-between;
+}
+.bg_grey{
+	background: #efefef;
+}
+/* .side{
+	width: 50%;
+	height: 100%;
+} */
+/* .section_text{
+	width: 70%;
+	font-size: 1.25em;
+} */
+/* .text_position,.image_position{
+	display: flex;
+	align-items: center;
+	padding: 5px 20px;
+	justify-content: center;
+} */
+/* .section_image{
+	height: 90%;
+    width: 100%;
+    object-fit: contain;
+} */
+/* .info{
+    background-image: url(uni4.jpg);
+}
+.back{
+    background-image: url(uni4.jpg);
+
+} */
+.barrier{
+    height: fit-content;
+    width: fit-content;
+}
+html{
+    scroll-behavior: smooth;
+}
+.container{
+    overflow: hidden;
+}
+.info{
+    background-image: linear-gradient(to right, rgb(0, 225, 255) , rgb(200, 255, 0));
+}
+header img {
+    width: 100%;
+    height: 750px;
+    object-fit: cover;
+}
+.sidepad{
+    padding: 103px;
+}
+.icon{
+    width: 100px;
+    height: 100px;
+
+}
+.icon img{
+    width: 80px;
+    transition: all .26s ease;
+    margin-top: 11px;
+}
+
+.icon img:hover{
+    transform: scale(1.1);
+
+}
+.figure-img{
+    width: 200px;
+    height: 350px;
+}
+.button{
+    margin-top: 300px;
+    margin-left: 40px;
+}
+.meta{  
+    margin-left: 1051px;
+    margin-top:-44px; 
+    margin-bottom: 44px;
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 30px;
+    color: rgb(255, 230, 0);
+}
+.st{
+    
+    color: rgb(255, 230, 0);
+}
+.btnad{
+ height: 100px;
+ width: 100px;
+}
+button#mute{
+    position: absolute;
+    top: 1078px;
+}
+img#mute_img{
+    background-color: #fff;
+    position: absolute;
+    bottom: 55px;
+}
