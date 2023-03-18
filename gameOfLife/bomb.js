@@ -46,10 +46,11 @@
 //         }
 //     }
 // }
-class Bomb {
+let LivingCreature = require("./LivingCreature")
+
+module.exports = class Bomb extends LivingCreature{
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+        super(x,y)
         this.time = 5;
         this.radius = 8
         this.directions = [
