@@ -12,57 +12,57 @@
 //     autoplay()
 // }
 
-function matrixGenerator(matrixSize,grass,grassEater,predator,bomb,dirt,hunter) {
-    var matrix = []
+// function matrixGenerator(matrixSize,grass,grassEater,predator,bomb,dirt,hunter) {
+//     var matrix = []
 
-    for (let i = 0; i < matrixSize; i++) {
-        matrix.push([])
-        for (let j = 0; j < matrixSize; j++) {
-        matrix[i].push(0)
+//     for (let i = 0; i < matrixSize; i++) {
+//         matrix.push([])
+//         for (let j = 0; j < matrixSize; j++) {
+//         matrix[i].push(0)
         
-        }
-    }
+//         }
+//     }
 
 
-    for (let i = 0; i < grass; i++) {
+//     for (let i = 0; i < grass; i++) {
         
-        var x = Math.floor(Math.random() * matrixSize)
-        var y = Math.floor(Math.random() * matrixSize)
+//         var x = Math.floor(Math.random() * matrixSize)
+//         var y = Math.floor(Math.random() * matrixSize)
 
-        matrix[y][x] = 1
+//         matrix[y][x] = 1
         
-    } 
+//     } 
 
-    for (let i = 0; i < grassEater; i++) {
+//     for (let i = 0; i < grassEater; i++) {
         
-        var x = Math.floor(Math.random() * matrixSize)
-        var y = Math.floor(Math.random() * matrixSize)
+//         var x = Math.floor(Math.random() * matrixSize)
+//         var y = Math.floor(Math.random() * matrixSize)
 
-        matrix[y][x] = 2
+//         matrix[y][x] = 2
         
-    }
+//     }
     
 
 
-    for (let i = 0; i < predator; i++) {
+//     for (let i = 0; i < predator; i++) {
         
-        var x = Math.floor(Math.random() * matrixSize)
-        var y = Math.floor(Math.random() * matrixSize)
+//         var x = Math.floor(Math.random() * matrixSize)
+//         var y = Math.floor(Math.random() * matrixSize)
 
-        matrix[y][x] = 3
-
-        
-    }
-
-    for (let i = 0; i < bomb; i++) {
-        
-        var x = Math.floor(Math.random() * matrixSize)
-        var y = Math.floor(Math.random() * matrixSize)
-
-        matrix[y][x] = 4
+//         matrix[y][x] = 3
 
         
-    }
+//     }
+
+//     for (let i = 0; i < bomb; i++) {
+        
+//         var x = Math.floor(Math.random() * matrixSize)
+//         var y = Math.floor(Math.random() * matrixSize)
+
+//         matrix[y][x] = 4
+
+        
+//     }
 
     // for(let i = 0 ; i < matrixSize;i++){
     //     for(let j = 0 ; j < matrixSize;j++){
@@ -73,74 +73,74 @@ function matrixGenerator(matrixSize,grass,grassEater,predator,bomb,dirt,hunter) 
     
     // }
 
-    for (let i = 0; i < dirt; i++) {
+//     for (let i = 0; i < dirt; i++) {
         
-        var x = Math.floor(Math.random() * matrixSize)
-        var y = Math.floor(Math.random() * matrixSize)
+//         var x = Math.floor(Math.random() * matrixSize)
+//         var y = Math.floor(Math.random() * matrixSize)
 
-        matrix[y][x] = 5
-
-        
-    }
-
-    for (let i = 0; i < hunter; i++) {
-        
-        var x = Math.floor(Math.random() * matrixSize)
-        var y = Math.floor(Math.random() * matrixSize)
-
-        matrix[y][x] = 6
+//         matrix[y][x] = 5
 
         
-    }
+//     }
+
+//     for (let i = 0; i < hunter; i++) {
+        
+//         var x = Math.floor(Math.random() * matrixSize)
+//         var y = Math.floor(Math.random() * matrixSize)
+
+//         matrix[y][x] = 6
+
+        
+//     }
 
 
 
 
 
-    return matrix
-}
-var matrix = matrixGenerator(30,40,20,5,3,8,2)
+//     return matrix
+// }
+// var matrix = matrixGenerator(30,40,20,5,3,8,2)
 var side = 25
 console.log(matrix);
 //
 
-var grassArr = [];
-var grassEaterArr = [];
-var predatorArr = []; 
-var BombArr = [];
-var dirtArr = [];
-var hunterArr = [];
+// var grassArr = [];
+// var grassEaterArr = [];
+// var predatorArr = []; 
+// var BombArr = [];
+// var dirtArr = [];
+// var hunterArr = [];
 
 
 
 function setup() {
     frameRate(15)
     createCanvas(matrix[0].length * side ,matrix.length * side)
-    for (let y = 0; y < matrix.length; y++) {
-        for (let x = 0; x < matrix[y].length; x++) {
+    // for (let y = 0; y < matrix.length; y++) {
+    //     for (let x = 0; x < matrix[y].length; x++) {
        
-           if(matrix[y][x] == 1){
-                var gr = new Grass(x,y)
-                grassArr.push(gr)
-           }else  if(matrix[y][x] == 2){
-                var grEat = new GrassEater(x,y)
-                grassEaterArr.push(grEat)
-           }else if(matrix[y][x] == 3){
-                var pred = new Predator(x,y)
-                predatorArr.push(pred)
-           }else if(matrix[y][x] == 4){
-                var bm = new Bomb(x,y)
-                BombArr.push(bm)
-           }else if(matrix[y][x] == 5){
-                var dr = new Dirt(x,y)
-                dirtArr.push(dr)
-           }else if(matrix[y][x] == 6){
-                var ht = new Hunter(x,y)
-                hunterArr.push(ht)
-           }
+    //        if(matrix[y][x] == 1){
+    //             var gr = new Grass(x,y)
+    //             grassArr.push(gr)
+    //        }else  if(matrix[y][x] == 2){
+    //             var grEat = new GrassEater(x,y)
+    //             grassEaterArr.push(grEat)
+    //        }else if(matrix[y][x] == 3){
+    //             var pred = new Predator(x,y)
+    //             predatorArr.push(pred)
+    //        }else if(matrix[y][x] == 4){
+    //             var bm = new Bomb(x,y)
+    //             BombArr.push(bm)
+    //        }else if(matrix[y][x] == 5){
+    //             var dr = new Dirt(x,y)
+    //             dirtArr.push(dr)
+    //        }else if(matrix[y][x] == 6){
+    //             var ht = new Hunter(x,y)
+    //             hunterArr.push(ht)
+    //        }
 
-           }
-        }
+    //        }
+    //     }
         
     }
 
@@ -187,26 +187,26 @@ function draw() {
           
       }
 
-      for(let i in  grassArr){
-            grassArr[i].mul()
-      }
+    //   for(let i in  grassArr){
+    //         grassArr[i].mul()
+    //   }
 
-      for(let i in  grassEaterArr){
-        grassEaterArr[i].eat()
+    //   for(let i in  grassEaterArr){
+    //     grassEaterArr[i].eat()
         
-      }
+    //   }
 
-      for(let i in predatorArr){
-         predatorArr[i].eat()
-      }
-      for(let i in  BombArr){
-          BombArr[i].mul()
-        }
-        for(let i in  hunterArr){
-            hunterArr[i].eat()
-            hunterArr[i].die()
+    //   for(let i in predatorArr){
+    //      predatorArr[i].eat()
+    //   }
+    //   for(let i in  BombArr){
+    //       BombArr[i].mul()
+    //     }
+    //     for(let i in  hunterArr){
+    //         hunterArr[i].eat()
+    //         hunterArr[i].die()
             // console.log(hunterArr.length);
-      }
+    //   }
 }
 
 

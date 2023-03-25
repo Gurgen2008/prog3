@@ -53,17 +53,7 @@ module.exports = class Bomb extends LivingCreature{
         super(x,y)
         this.time = 5;
         this.radius = 8
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-
-        ];
+        return super.chooseCell(this.directions)
     }
     getNewCordinates() {
         this.directions = [
