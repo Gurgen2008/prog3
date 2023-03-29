@@ -100,7 +100,11 @@
 //     return matrix
 // }
 // var matrix = matrixGenerator(30,40,20,5,3,8,2)
+
+var socket = io();
+
 var side = 25
+
 console.log(matrix);
 //
 
@@ -209,7 +213,11 @@ function draw() {
     //   }
 }
 
-
+setInterval(
+    function () {
+    socket.on('send matrix', draw)
+    },1000
+)
 // function muteAudio() {
 //     var audio = document.getElementById('audioPlayer');
     

@@ -1,15 +1,17 @@
 var express = require('express');
 var app = express();
-var server = require('http').createServer(app);
+var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
 
 app.use(express.static("."));
-app.get('/', function (req, res) {
-res.redirect('index.html');
-});
 
-server.listen(3000);
+app.get('/', function (req, res) {
+    res.redirect('index.html');
+});
+server.listen(3000, () => {
+    console.log('connected');
+});
 
 function matrixGenerator(matrixSize,grass,grassEater,predator,bomb,dirt,hunter) {
     var matrix = []
@@ -100,6 +102,8 @@ function matrixGenerator(matrixSize,grass,grassEater,predator,bomb,dirt,hunter) 
 }
  matrix = matrixGenerator(30,40,20,5,3,8,2)
 
+ io.sockets.emit('send matrix', matrix)
+
  grassArr = [];
  grassEaterArr = [];
  predatorArr = []; 
@@ -107,12 +111,12 @@ function matrixGenerator(matrixSize,grass,grassEater,predator,bomb,dirt,hunter) 
  dirtArr = [];
  hunterArr = [];
 
-const Grass = require("./grass")
-const GrassEater = require("./grassEater")
-const Predator = require("./predator")
-const Bomb = require("./bomb")
-const Dirt = require("./dirt")
-const Hunter = require("./hunter")
+const Grass = require("./grass.js")
+const GrassEater = require("./grassEater.js")
+const Predator = require("./predator.js")
+const Bomb = require("./bomb.js")
+const Dirt = require("./dirt.js")
+const Hunter = require("./hunter.js")
 
  function createObj(){
     for (let y = 0; y < matrix.length; y++) {
@@ -140,6 +144,7 @@ const Hunter = require("./hunter")
 
            }
         }
+        io.sockets.emit('send matrix', matrix)
  }
 
  createObj();
@@ -166,7 +171,13 @@ const Hunter = require("./hunter")
         hunterArr[i].die()
         // console.log(hunterArr.length);
   }
+  io.sockets.emit("send matrix", matrix);
  }
 
 
  setInterval(gameMove,1000)
+
+
+ io.on('connection', function () {
+    createObject(matrix)
+})

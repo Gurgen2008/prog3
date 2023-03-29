@@ -14,7 +14,7 @@
 //                 [this.x + 1, this.y + 1]
 //             ];
 //     } 
- 
+
 //     chooseCell(char){ 
 //        let found = []
 //        for(let i in this.directions){
@@ -48,9 +48,9 @@
 // }
 let LivingCreature = require("./LivingCreature")
 
-module.exports = class Bomb extends LivingCreature{
+module.exports = class Bomb extends LivingCreature {
     constructor(x, y) {
-        super(x,y)
+        super(x, y)
         this.time = 5;
         this.radius = 8
         return super.chooseCell(this.directions)
@@ -101,10 +101,29 @@ module.exports = class Bomb extends LivingCreature{
 
         return found;
     }
-    mul() {
-        let emptyCell = this.chooseCell(0, 1, 2, 3, 4);
-        let newCell = random(emptyCell)
+    random(ch, ch1, ch2, ch3, ch4) {
+        let found = this.chooseCell(ch)
+        let result = Math.floor(Math.random() * found.length)
 
+        let found1 = this.chooseCell(ch1)
+        let result1 = Math.floor(Math.random() * found1.length)
+
+        let found2 = this.chooseCell(ch2)
+        let result2 = Math.floor(Math.random() * found2.length)
+
+        let found3 = this.chooseCell(ch3)
+        let result3 = Math.floor(Math.random() * found3.length)
+
+        let found4 = this.chooseCell(ch4)
+        let result4 = Math.floor(Math.random() * found4.length)
+
+        return found(result), found1(result1),found2(result2),found3(result3),found4(result4)
+
+    }
+    mul() {
+        // let emptyCell = this.chooseCell(0, 1, 2, 3, 4);
+        // let newCell = random(emptyCell)
+        let newCell = this.random(0,1,2,3,4)
         if (newCell) {
             this.radius++;
             let newX = newCell[0];
@@ -140,8 +159,8 @@ module.exports = class Bomb extends LivingCreature{
         for (let x = 0; x < matrix.length; x++) {
             for (let y = 0; y < matrix[x].length; y++) {
                 if (matrix[x][y] == 4) {
-               
-                    
+
+
                     matrix[x][y] = 7
                 }
             }

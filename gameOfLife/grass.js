@@ -8,8 +8,9 @@ module.exports = class Grass extends LivingCreature{
     } 
 
     random(ch){
-        let found = this.chooseCell(ch)
+        let found = super.chooseCell(ch)
         let result = Math.floor(Math.random() * found.length)
+        return found(result)
     }
 
     mul(){
