@@ -101,11 +101,10 @@
 // }
 // var matrix = matrixGenerator(30,40,20,5,3,8,2)
 
-var socket = io();
+const socket = io();
 
 var side = 25
 
-console.log(matrix);
 //
 
 // var grassArr = [];
@@ -119,7 +118,7 @@ console.log(matrix);
 
 function setup() {
     frameRate(15)
-    createCanvas(matrix[0].length * side ,matrix.length * side)
+    createCanvas(50 * side,50 * side)
     // for (let y = 0; y < matrix.length; y++) {
     //     for (let x = 0; x < matrix[y].length; x++) {
        
@@ -148,12 +147,12 @@ function setup() {
         
     }
 
-function draw() {
+function changeColor(matrix) {
     
       for (let y = 0; y < matrix.length; y++) {
         for (let x = 0; x < matrix[y].length; x++) {
             var toBot = side - side * 0.3
-            textSize(toBot);
+            
                 if(matrix[y][x] == 1){
                     fill("green");
                     rect(x * side, y * side, side, side);
@@ -213,11 +212,11 @@ function draw() {
     //   }
 }
 
-setInterval(
-    function () {
-    socket.on('send matrix', draw)
-    },1000
-)
+
+    
+    socket.on('send matrix', changeColor)
+
+
 // function muteAudio() {
 //     var audio = document.getElementById('audioPlayer');
     

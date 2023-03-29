@@ -1,13 +1,13 @@
 var express = require('express');
 var app = express();
-var server = require('http').Server(app);
+var server = require('http').Server(app); 
 var io = require('socket.io')(server);
 
 
 app.use(express.static("."));
 
 app.get('/', function (req, res) {
-    res.redirect('index.html');
+    res.redirect('game.html');
 });
 server.listen(3000, () => {
     console.log('connected');
@@ -96,13 +96,15 @@ function matrixGenerator(matrixSize,grass,grassEater,predator,bomb,dirt,hunter) 
 
 
 
-
+    io.emit('send matrix', matrix)
 
     return matrix
+
+    
 }
  matrix = matrixGenerator(30,40,20,5,3,8,2)
 
- io.sockets.emit('send matrix', matrix)
+ 
 
  grassArr = [];
  grassEaterArr = [];
@@ -143,11 +145,12 @@ const Hunter = require("./hunter.js")
            }
 
            }
+           io.emit('send matrix', matrix)
         }
-        io.sockets.emit('send matrix', matrix)
+        
  }
 
- createObj();
+createObj()
 
 
  function gameMove(){
@@ -171,7 +174,7 @@ const Hunter = require("./hunter.js")
         hunterArr[i].die()
         // console.log(hunterArr.length);
   }
-  io.sockets.emit("send matrix", matrix);
+  io.emit("send matrix", matrix);
  }
 
 
@@ -179,5 +182,5 @@ const Hunter = require("./hunter.js")
 
 
  io.on('connection', function () {
-    createObject(matrix)
+    createObj(matrix)
 })

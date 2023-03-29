@@ -53,7 +53,7 @@ module.exports = class Bomb extends LivingCreature {
         super(x, y)
         this.time = 5;
         this.radius = 8
-        return super.chooseCell(this.directions)
+        
     }
     getNewCordinates() {
         this.directions = [
@@ -102,22 +102,28 @@ module.exports = class Bomb extends LivingCreature {
         return found;
     }
     random(ch, ch1, ch2, ch3, ch4) {
-        let found = this.chooseCell(ch)
+        let found = []
+        let found1 = []
+        let found2 = []
+        let found3 = []
+        let found4 = []
+
+        found = this.chooseCell(ch)
         let result = Math.floor(Math.random() * found.length)
 
-        let found1 = this.chooseCell(ch1)
+        found1 = this.chooseCell(ch1)
         let result1 = Math.floor(Math.random() * found1.length)
 
-        let found2 = this.chooseCell(ch2)
+        found2 = this.chooseCell(ch2)
         let result2 = Math.floor(Math.random() * found2.length)
 
-        let found3 = this.chooseCell(ch3)
+        found3 = this.chooseCell(ch3)
         let result3 = Math.floor(Math.random() * found3.length)
 
-        let found4 = this.chooseCell(ch4)
+        found4 = this.chooseCell(ch4)
         let result4 = Math.floor(Math.random() * found4.length)
 
-        return found(result), found1(result1),found2(result2),found3(result3),found4(result4)
+        return found[result], found1[result1],found2[result2],found3[result3],found4[result4]
 
     }
     mul() {

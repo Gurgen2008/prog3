@@ -46,11 +46,13 @@ module.exports = class Predator extends LivingCreature{
         return found;
     }
     random(ch,ch2){
-        let found = this.chooseCell(ch)
+        let found = []
+        let found1 = []
+        found = this.chooseCell(ch)
         let result = Math.floor(Math.random() * found.length)
-        let found1 = this.chooseCell(ch2)
+        found1 = this.chooseCell(ch2)
         let result1 = Math.floor(Math.random() * found1.length)
-        return found(result),found1(result1)
+        return found[result],found1[result1]
 
     }
 

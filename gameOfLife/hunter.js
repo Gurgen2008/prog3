@@ -26,9 +26,10 @@ module.exports = class Hunter extends LivingCreature{
         return super.chooseCell(char)
     }
     random(ch){
-        let found = this.chooseCell(ch)
+        let found = []
+        found = this.chooseCell(ch)
         let result = Math.floor(Math.random() * found.length)
-        return found(result)
+        return found[result]
     }
 
 

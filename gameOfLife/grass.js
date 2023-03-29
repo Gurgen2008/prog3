@@ -4,13 +4,15 @@ module.exports = class Grass extends LivingCreature{
     constructor(x,y){
             super(x,y)
             this.multiply = 0;
-            return super.chooseCell(this.directions)
+            
     } 
 
     random(ch){
-        let found = super.chooseCell(ch)
+        let found =[]
+    
+         found = this.chooseCell(ch)
         let result = Math.floor(Math.random() * found.length)
-        return found(result)
+        return found[result]
     }
 
     mul(){
