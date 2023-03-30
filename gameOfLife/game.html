@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="script.js"></script>
+    <script src="server.js"></script>
     
     <!-- <script src="grass.js"></script>
     <script src="grassEater.js"></script>
@@ -98,10 +99,10 @@
       <a href="javascript:void(0);" onclick="toggleMute();pictureChange();autoplay()" ><img src="mute_on.png" ID="mute_img"></a>
  
     <div class="meta">
-      <a href="javascript:location.reload(true)" class="st">Start again</a>
+      <a href="javascript:onclick()" class="st">Start again</a>
     </div>
     <canvas> </canvas>
-    <footer class="bg-light text-center text-lg-start">
+    <footer class="bg-light text-center text-lg-start" style="position: absolute; right: 0; left: 0; bottom:0; ">
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
           © 2023 Copyright:
