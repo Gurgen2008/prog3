@@ -6,16 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script> -->
-    <script src="socket.io/socket.io.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="script.js"></script>
-
+    
+    
     
     <!-- <script src="grass.js"></script>
-    <script src="grassEater.js"></script>
-    <script src="predator.js"></script>
+      <script src="grassEater.js"></script>
+      <script src="predator.js"></script>
     <script src="bomb.js"></script>
     <script src="dirt.js"></script>
     <script src="hunter.js"></script> -->
@@ -55,26 +51,26 @@
     
     
     <!-- <style>
-        .block{
-          width: 200px;
-        }
-        p{
-           color: yellow;
-           width: fit-content;
-           height: 100px;
-           margin-left: 750px;
-           margin-top: 100px;
-           font-size: 50px;
-           font-family: Arial, Helvetica, sans-serif;   
-           text-align: center;
-           
-         }
-        html{
-            background-image:url(bg.jpg);
-            
-            /* background-color: magenta; */
-        }
-
+      .block{
+        width: 200px;
+      }
+      p{
+        color: yellow;
+        width: fit-content;
+        height: 100px;
+        margin-left: 750px;
+        margin-top: 100px;
+        font-size: 50px;
+        font-family: Arial, Helvetica, sans-serif;   
+        text-align: center;
+        
+      }
+      html{
+        background-image:url(bg.jpg);
+        
+        /* background-color: magenta; */
+      }
+      
         main{
             margin-left: 520px;
             margin-top: 150px;
@@ -85,35 +81,62 @@
     <!-- <audio id="audio" controls >
       <source src="sound.mp3" type='audio/mpeg; codecs="mp3"'/>
     </audio>
-
-      <div >
-        <button ID="mute" onclick="muteAudio()"><img src="mute_on.png" ID="mute_img"/></button>
-      </div> -->
-
-      <iframe src="sound.mp3" allow="autoplay" id="audio" hidden ></iframe>
-
-       <audio id="player" autoplay="true" muted="true">
-         <source src="sound.mp3" type="audio/mp3" />
-       </audio> 
-
-      <a href="javascript:void(0);" onclick="toggleMute();pictureChange();autoplay()" ><img src="mute_on.png" ID="mute_img"></a>
- 
+    
+    <div >
+      <button ID="mute" onclick="muteAudio()"><img src="mute_on.png" ID="mute_img"/></button>
+    </div> -->
+    
+    <iframe src="sound.mp3" allow="autoplay" id="audio" hidden ></iframe>
+    
+    <audio id="player" autoplay="true" muted="true">
+      <source src="sound.mp3" type="audio/mp3" />
+    </audio> 
+    
+    <a href="javascript:void(0);" onclick="toggleMute();pictureChange();autoplay()" ><img src="mute_on.png" ID="mute_img"></a>
+    
     <div class="meta">
       <a href="javascript:onclick(matrix)" class="st">Start again</a>
     </div>
-    <button onclick="Season(1)">Winter</button>
-    <button onclick="Season(2)">Spring</button>
-    <button onclick="Season(3)">Summer</button>
-    <button onclick="Season(4)">Autum</button>
 
-    <footer class="bg-light text-center text-lg-start" style="position: absolute; right: 0; left: 0; bottom:0; ">
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-          © 2023 Copyright:
-          <a class="text-dark" href="https://tumo.org/" target="_parent">Tumo.org</a>
-        </div>
-        <!-- Copyright --> 
-    </footer>
-</body>
+    <div class="btn_adder">
+       <button onclick="AddGrass()" class="button-29" role="button" style="margin-left: 200px;">Add Grass</button><br>
+    
+    <button onclick="AddGrassEater()" class="button-29" role="button" style="margin-left: 200px;">Add GrassEater</button><br>
+    
+    <button onclick="AddHunter()" class="button-29" role="button" style="margin-left: 200px;">Add Hunter</button><br>
+    
+    <button onclick="AddPredator()" class="button-29" role="button" style="margin-left: 200px;">Add Predator</button><br>
+    
+    <button onclick="AddBomb()" class="button-29" role="button" style="margin-left: 200px;">Add Bomb</button><br>
+
+    <button onclick="Kill()" class="button-29" role="button" style="margin-left: 200px;">Kill All</button><br>
+    </div>
+    <br>
+    <div class="btn_weather">
+      <button onclick="Season(1)" class="button-29" role="button">Winter</button><br>
+    
+    <button onclick="Season(2)" class="button-29" role="button">Spring</button><br>
+    
+    <button onclick="Season(3)" class="button-29" role="button">Summer</button><br>
+    
+    <button onclick="Season(4)" class="button-29" role="button">Autum</button><br>
+    </div>
+    
+    
    
+    
+    
+    <footer class="bg-light text-center text-lg-start" style="position: absolute; right: 0; left: 0; ">
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2023 Copyright:
+        <a class="text-dark" href="https://tumo.org/" target="_parent">Tumo.org</a>
+      </div>
+      <!-- Copyright --> 
+    </footer>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+    <script src="script.js"></script>
+  </body>
+  
 </html>

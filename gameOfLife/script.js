@@ -101,7 +101,7 @@
 // }
 // var matrix = matrixGenerator(30,40,20,5,3,8,2)
 
-const socket = io();
+var socket = io();
 
 var side = 25
 
@@ -148,17 +148,18 @@ function setup() {
     }
 
 
-    let Ses =[]
+    let Ses = ["green","orange","red","black","brown","purple"]
     function Season(s){
       let  color =[]
         if(s == 1){
-            color =["white","green","lightgray","black","darkbrown","purple"]
+            color =["#ffffff","#008000","#d3d3d3","#000000","#744700","#800080"]
         }else if(s == 2){
-            color =["lightgreen","lightyellow","lightgray","black","lightbrown","purple"]
+            color =["#90ee90","#f7f792","#d3d3d3","#000000","#d48100","#800080"]
         }else if(s == 3){
-            color =["darkgreen","darkyellow","darkgray","black","darkbrown","purple"]
+            // color =["#006400","#edff00","#a9a9a9","#000000","#744700","#800080"]
+            color = ["green","orange","red","black","brown","purple"]
         }else if(s == 4){
-            color =["orange","yellow","red","black","brown","purple"]
+            color =["#ffa500","#d2d201","#ff0000","#000000","#a52a2a","#800080"]
         }
         Ses = color 
         return Ses
@@ -233,7 +234,24 @@ function changeColor(matrix) {
     
     socket.on('send matrix', changeColor)
 
-
+    function AddGrass(){
+        socket.emit("addGrass");
+    }
+    function AddGrassEater(){
+        socket.emit("addGrassEater");
+    }
+    function AddHunter(){
+        socket.emit("addHunter");
+    }
+    function AddPredator(){
+        socket.emit("addPredator");
+    }
+    function AddBomb(){
+        socket.emit("addBomb");
+    }
+    function Kill() {
+        socket.emit("killAll");
+    }
 // function muteAudio() {
 //     var audio = document.getElementById('audioPlayer');
     
@@ -264,6 +282,7 @@ function pictureChange(){
         x.src="mute_off.png";
     }
 }
+
 
 
 

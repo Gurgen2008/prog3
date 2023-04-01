@@ -120,6 +120,7 @@ const Bomb = require("./bomb.js")
 const Dirt = require("./dirt.js")
 const Hunter = require("./hunter.js")
 
+
  function createObj(){
     for (let y = 0; y < matrix.length; y++) {
         for (let x = 0; x < matrix[y].length; x++) {
@@ -152,6 +153,88 @@ const Hunter = require("./hunter.js")
 
 createObj()
 
+function Kill() {
+    grassArr = [];
+    grassEaterArr = [];
+    predatorArr = [];
+    BombArr = [];
+    dirtArr = [];
+    hunterArr = [];
+    for (var y = 0; y < matrix.length; y++) {
+        for (var x = 0; x < matrix[y].length; x++) {
+            matrix[y][x] = 0;
+        }
+    }
+    io.emit("send matrix", matrix);
+}
+
+function AddGrass() {
+    for (var i = 0; i < 7; i++) {
+        var x = Math.floor(Math.random() * matrix[0].length)
+        var y = Math.floor(Math.random() * matrix.length)
+        if (matrix[y][x] == 0) {
+            matrix[y][x] = 1;
+            var gr = new Grass(x, y);
+            grassArr.push(gr);
+        }
+    }
+    io.emit("send matrix", matrix);
+}
+
+function AddGrassEater() {
+    for (var i = 0; i < 7; i++) {
+        var x = Math.floor(Math.random() * matrix[0].length)
+        var y = Math.floor(Math.random() * matrix.length)
+        if (matrix[y][x] == 0) {
+            matrix[y][x] = 2;
+            var grEat = new GrassEater(x, y);
+            grassEaterArr.push(grEat);
+        }
+    }
+    io.emit("send matrix", matrix);
+}
+
+function AddHunter() {
+    for (var i = 0; i < 7; i++) {
+        var x = Math.floor(Math.random() * matrix[0].length)
+        var y = Math.floor(Math.random() * matrix.length)
+        if (matrix[y][x] == 0) {
+            matrix[y][x] = 6;
+            var ht = new Hunter(x, y);
+            hunterArr.push(ht);
+        }
+    }
+    io.emit("send matrix", matrix);
+}
+
+function AddPredator() {
+    for (var i = 0; i < 7; i++) {
+        var x = Math.floor(Math.random() * matrix[0].length)
+        var y = Math.floor(Math.random() * matrix.length)
+        if (matrix[y][x] == 0) {
+            matrix[y][x] = 3;
+            var pred = new Predator(x, y);
+            predatorArr.push(pred);
+        }
+    }
+    io.emit("send matrix", matrix);
+}
+
+function AddBomb() {
+    for (var i = 0; i < 7; i++) {
+        var x = Math.floor(Math.random() * matrix[0].length)
+        var y = Math.floor(Math.random() * matrix.length)
+        if (matrix[y][x] == 0) {
+            matrix[y][x] = 4;
+            var bm = new Bomb(x, y);
+            BombArr.push(bm);
+        }
+    }
+    io.emit("send matrix", matrix);
+}
+
+
+
 
  function gameMove(){
     for(let i in  grassArr){
@@ -178,9 +261,16 @@ createObj()
  }
 
 
- setInterval(gameMove,1000)
+ setInterval(gameMove,350)
 
 
- io.on('connection', function () {
+ io.on('connection', function (socket) {
     createObj(matrix)
+    socket.on("addGrass", AddGrass);
+    socket.on("addGrassEater", AddGrassEater);
+    socket.on("addHunter", AddHunter);
+    socket.on("addPredator", AddPredator);
+    socket.on("addBomb", AddBomb);
+    socket.on("killAll", Kill);
+
 })
