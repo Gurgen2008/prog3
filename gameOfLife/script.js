@@ -147,6 +147,23 @@ function setup() {
         
     }
 
+
+    let Ses =[]
+    function Season(s){
+      let  color =[]
+        if(s == 1){
+            color =["white","green","lightgray","black","darkbrown","purple"]
+        }else if(s == 2){
+            color =["lightgreen","lightyellow","lightgray","black","lightbrown","purple"]
+        }else if(s == 3){
+            color =["darkgreen","darkyellow","darkgray","black","darkbrown","purple"]
+        }else if(s == 4){
+            color =["orange","yellow","red","black","brown","purple"]
+        }
+        Ses = color 
+        return Ses
+
+    }
 function changeColor(matrix) {
     
       for (let y = 0; y < matrix.length; y++) {
@@ -154,27 +171,27 @@ function changeColor(matrix) {
             var toBot = side - side * 0.3
             
                 if(matrix[y][x] == 1){
-                    fill("green");
+                    fill(Ses[0]);
                     rect(x * side, y * side, side, side);
                     text('🍀', x * side, y * side + toBot);
                 }else if (matrix[y][x] == 2){
-                    fill ("yellow")
+                    fill (Ses[1])
                     rect(x * side, y * side, side, side);
                     text('🐛', x * side, y * side + toBot);
                 }else if(matrix[y][x] == 3){
-                    fill ("red")
+                    fill (Ses[2])
                     rect(x * side, y * side, side, side);
                     text('🐺', x * side, y * side + toBot);
                 }else if(matrix[y][x] == 4){
-                    fill ("black")
+                    fill (Ses[3])
                     rect(x * side, y * side, side, side);
                     text('💣', x * side, y * side + toBot);
                 }else if(matrix[y][x] == 5){
-                    fill ("brown")
+                    fill (Ses[4])
                     rect(x * side, y * side, side, side);
                     text('⛑', x * side, y * side + toBot);
                 }else if(matrix[y][x] == 6){
-                    fill ("purple")   
+                    fill (Ses[5])   
                     rect(x * side, y * side, side, side);
                     text('🕵🏻‍♂️', x * side, y * side + toBot);
                 }else if(matrix[y][x] == 7){
@@ -247,3 +264,72 @@ function pictureChange(){
         x.src="mute_off.png";
     }
 }
+
+
+
+// function winter(matrix) {
+    
+//     for (let y = 0; y < matrix.length; y++) {
+//       for (let x = 0; x < matrix[y].length; x++) {
+//           var toBot = side - side * 0.3
+          
+//               if(matrix[y][x] == 1){
+//                   fill("white");
+//                   rect(x * side, y * side, side, side);
+//                   text('🍀', x * side, y * side + toBot);
+//               }else if (matrix[y][x] == 2){
+//                   fill ("green")
+//                   rect(x * side, y * side, side, side);
+//                   text('🐛', x * side, y * side + toBot);
+//               }else if(matrix[y][x] == 3){
+//                   fill ("lightgray")
+//                   rect(x * side, y * side, side, side);
+//                   text('🐺', x * side, y * side + toBot);
+//               }else if(matrix[y][x] == 4){
+//                   fill ("black")
+//                   rect(x * side, y * side, side, side);
+//                   text('💣', x * side, y * side + toBot);
+//               }else if(matrix[y][x] == 5){
+//                   fill ("darkbrown")
+//                   rect(x * side, y * side, side, side);
+//                   text('⛑', x * side, y * side + toBot);
+//               }else if(matrix[y][x] == 6){
+//                   fill ("purple")   
+//                   rect(x * side, y * side, side, side);
+//                   text('🕵🏻‍♂️', x * side, y * side + toBot);
+//               }else if(matrix[y][x] == 7){
+//                   fill ("orange")   
+//                   rect(x * side, y * side, side, side);
+//               }
+//               else{
+//                   fill ("gray")
+//                   rect(x * side, y * side, side, side);
+                  // text('🤪', x * side, y * side + toBot);
+    //           }
+    //   }
+        
+    // }
+
+  //   for(let i in  grassArr){
+  //         grassArr[i].mul()
+  //   }
+
+  //   for(let i in  grassEaterArr){
+  //     grassEaterArr[i].eat()
+      
+  //   }
+
+  //   for(let i in predatorArr){
+  //      predatorArr[i].eat()
+  //   }
+  //   for(let i in  BombArr){
+  //       BombArr[i].mul()
+  //     }
+  //     for(let i in  hunterArr){
+  //         hunterArr[i].eat()
+  //         hunterArr[i].die()
+          // console.log(hunterArr.length);
+  //   }
+// }
+
+
