@@ -7,10 +7,10 @@ var fs = require("fs")
 app.use(express.static("."));
 
 app.get('/', function (req, res) {
-    res.redirect('game.html');
+    res.redirect("game.html");
 });
 server.listen(3000, () => {
-    console.log('connected');
+    console.log("Connected Enjoy with GameOfLife");
 });
 
 function matrixGenerator(matrixSize, grass, grassEater, predator, bomb, dirt, hunter) {
@@ -72,15 +72,6 @@ function matrixGenerator(matrixSize, grass, grassEater, predator, bomb, dirt, hu
 
 
     }
-
-    // for(let i = 0 ; i < matrixSize;i++){
-    //     for(let j = 0 ; j < matrixSize;j++){
-    //             if(i == j || i < j == matrix.length - 1){
-    //                     matrix[i][j] = 4
-    //             }
-    //     }
-
-    // }
 
     for (let i = 0; i < dirt; i++) {
 
@@ -256,7 +247,7 @@ function restart() {
     clearInterval(interval)
     matrix = matrixGenerator(30, 40, 20, 5, 3, 8, 2)
     createObj()
-    setInterval(gameMove, 500)
+    setInterval(gameMove, 400)
 }
 
 
@@ -267,11 +258,12 @@ function gameMove() {
 
     for (let i in grassEaterArr) {
         grassEaterArr[i].eat()
-
+       
     }
 
     for (let i in predatorArr) {
         predatorArr[i].eat()
+        predatorArr[i].move()
     }
     for (let i in BombArr) {
         BombArr[i].mul()
@@ -279,13 +271,12 @@ function gameMove() {
     for (let i in hunterArr) {
         hunterArr[i].eat()
         hunterArr[i].die()
-        // console.log(hunterArr.length);
     }
     io.emit("send matrix", matrix);
 }
 
 
-let interval = setInterval(gameMove, 500)
+let interval = setInterval(gameMove, 400)
 
 
 io.on('connection', function (socket) {
@@ -300,8 +291,6 @@ io.on('connection', function (socket) {
 
 });
 
-
-
 setInterval(function () {
     counts = {
        grass: grassArr.length,
@@ -315,6 +304,6 @@ setInterval(function () {
     fs.writeFile("statistics.json", JSON.stringify(counts), function () {
         io.emit("send datas", counts)
     })
-}, 600);
+}, 400);
 
 

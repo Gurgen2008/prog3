@@ -34,8 +34,6 @@ module.exports = class Hunter extends LivingCreature{
 
 
     mul(){
-        // let emptyCell = this.chooseCell(0)
-        // let newCell = random(emptyCell)
         let newCell = this.random(0)
         
         if(newCell && this.energy > 5){
@@ -50,8 +48,6 @@ module.exports = class Hunter extends LivingCreature{
         }
     }
     eat() {
-        // let emptyCell = this.chooseCell(3);
-        // let newCell = random(emptyCell)
         let newCell = this.random(3)
         if (newCell) {
             this.energy += 5;
@@ -80,8 +76,6 @@ module.exports = class Hunter extends LivingCreature{
         }
     }
     move() {
-        // let emptyCell = this.chooseCell(0);
-        // let newCell = random(emptyCell)
         let newCell = this.random(0)
         if (newCell) {
             let newX = newCell[0];
@@ -94,17 +88,10 @@ module.exports = class Hunter extends LivingCreature{
             this.x = newX;
             this.y = newY;
 
-            // this.energy--
-
-            // if (this.energy < 0) {
-            //     this.die()
-            // }
         } 
     }
 
     die() {
-        // let emptyCell = this.chooseCell(4);
-        // let newCell = random(emptyCell)
         let newCell = this.random(4)
         if(newCell){
 
