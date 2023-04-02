@@ -200,7 +200,7 @@ function changeColor(matrix) {
                     rect(x * side, y * side, side, side);
                 }
                 else{
-                    fill ("gray")
+                    fill("gray")
                     rect(x * side, y * side, side, side);
                     // text('🤪', x * side, y * side + toBot);
                 }
@@ -252,6 +252,20 @@ function changeColor(matrix) {
     function Kill() {
         socket.emit("killAll");
     }
+    function restart(){
+        socket.emit("restartServ",true)
+    }
+    
+    socket.on ("send datas", function(counts){
+    
+        document.getElementById("grass").innerHTML = "Grass:  " + counts.grass;
+        document.getElementById("grassEater").innerHTML = "GrassEater: " + counts.grassEater;
+        document.getElementById("predator").innerHTML = "Predator: " + counts.predator;
+        document.getElementById("hunter").innerHTML = "Hunter: " + counts.hunter;
+        document.getElementById("bomb").innerHTML = "Bomb: " + counts.bomb;
+        document.getElementById("dirt").innerHTML = "Dirt: " + counts.dirt;
+
+      })
 // function muteAudio() {
 //     var audio = document.getElementById('audioPlayer');
     
