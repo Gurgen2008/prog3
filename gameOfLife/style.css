@@ -92,7 +92,7 @@
       top: 0;
       bottom: 0;
       margin: auto;
-      margin-bottom: 70px;
+      margin-bottom: 350px;
   }
 
   section {
@@ -244,12 +244,13 @@
       display: flex;
       justify-content: center;
       width: 100%;
-      margin-top: -37px;
+      height: 180px;
+      margin-top: 23px;
   }
 
   .table ul li {
       height: 60px;
-      width: 150px;
+      width: 170px;
       color: #ffffff;
       justify-content: right;
       font-size: 18px;
